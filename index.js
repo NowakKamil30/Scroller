@@ -4,14 +4,24 @@ document.addEventListener("DOMContentLoaded", () => {
   let isFrezz = false;
   const sections = document.querySelectorAll(".section");
   document.addEventListener("mousewheel", e => {
-    const direction = e.wheelDelta < 0 ? 1 : -1;
-    const sectionsLenght = sections.length;
     if (isFrezz) return;
     isFrezz = true;
     setTimeout(() => {
       isFrezz = false;
     }, 600);
 
+    const direction = e.wheelDelta < 0 ? 1 : -1;
+    scroll(direction);
+  });
+
+  const scrollToSection = () => {
+    sections[currentSectionIndex].scrollIntoView({
+      block: "start",
+      behavior: "smooth"
+    });
+  };
+  const scroll = direction => {
+    const sectionsLenght = sections.length;
     if (direction === 1) {
       const isLastSection = currentSectionIndex === sectionsLenght - 1;
       if (!isLastSection) {
@@ -23,9 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
         currentSectionIndex += direction;
       }
     }
-    sections[currentSectionIndex].scrollIntoView({
-      block: "start",
-      behavior: "smooth"
-    });
-  });
+    scrollToSection();
+  };
 });
