@@ -1,0 +1,30 @@
+$active-item-color: #000;
+$item-color:#444;
+.scroller-navigation
+{
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    &__list
+    {
+        list-style: none;
+    }
+    &__item{
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: $item-color;
+        margin-top:10px;
+        cursor: pointer;
+        transition: 0.2s;
+        &:first-of-type
+        {
+            margin-top:0;
+        }
+        &--active
+        {
+            background-color: $active-item-color;
+        }
+    }
+}

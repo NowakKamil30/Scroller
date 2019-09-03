@@ -7,7 +7,8 @@ class Scroller {
     );
     this.currentSectionIndex = Math.max(currentSectionIndex, 0);
     this.isFrezz = false;
-    this.isScrolledIntoView(this.sections[0]);
+
+    this.drawNavigation();
   }
 
   isScrolledIntoView = element => {
@@ -44,9 +45,41 @@ class Scroller {
     this.scrollToSection();
   };
   scrollToSection = () => {
+    this.selectActiveNavItem();
     this.sections[this.currentSectionIndex].scrollIntoView({
       block: "start",
       behavior: "smooth"
+    });
+  };
+
+  drawNavigation = () => {
+    this.navigationContainer = document.createElement("aside");
+    this.navigationContainer.setAttribute("class", "scroller-navigation");
+    const list = document.createElement("ul");
+    list.setAttribute("class", "scroller-navigation__list");
+
+    this.sections.forEach((section, index) => {
+      const listItem = document.createElement("li");
+      listItem.setAttribute("class", "scroller-navigation__item");
+      listItem.addEventListener("click", () => {
+        this.currentSectionIndex = index;
+        this.scrollToSection();
+      });
+      list.appendChild(listItem);
+    });
+    this.navigationContainer.appendChild(list);
+    document.body.appendChild(this.navigationContainer);
+    this.selectActiveNavItem();
+  };
+  selectActiveNavItem = () => {
+    const navigationItems = this.navigationContainer.querySelectorAll("li");
+
+    navigationItems.forEach((item, index) => {
+      if (index === this.currentSectionIndex) {
+        item.classList.add("scroller-navigation__item--active");
+      } else {
+        item.classList.remove("scroller-navigation__item--active");
+      }
     });
   };
 }
