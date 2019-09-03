@@ -1,0 +1,18 @@
+@mixin margin($top:0,$right:$top,$bottom:$top,$left:$right) {
+    @if($top==$right and $top==$bottom and $top==$right){
+        margin: $top;
+    } 
+    @else if($top==$bottom and $left==$right)
+    {
+        margin: $top $right;
+    }
+    @else if($left==$right)
+    {
+        margin: $top $right $bottom;
+    }
+    @else
+    {
+        margin :$top $right $bottom $left;
+    }
+    
+}

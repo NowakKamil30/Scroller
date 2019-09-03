@@ -1,0 +1,13 @@
+{
+    "version": 3,
+    "mappings": "AEAA,AAAA,CAAC,AAAA,CACG,MAAM,CAAE,CAAC,CACT,OAAO,CAAE,CAAC,CACV,UAAU,CAAE,UAAU,CACzB,ACJD,AAAA,IAAI,AAAA,CACA,QAAQ,CAAE,MAAM,CACnB,ACFD,AACI,QADI,AACH,cAAc,AAAA,CACX,MAAM,CAAE,KAAK,CACb,UAAU,CAAE,MAAM,CACrB,AACA,AAAD,cAAO,AACP,CACI,SAAS,CAAE,GAAG,CHGd,MAAM,CGFU,IAAI,CAAE,IAAI,CAAC,CAAC,CAC/B",
+    "sources": [
+        "../sass/index.scss",
+        "../sass/mixin/_margin.scss",
+        "../sass/_reset.scss",
+        "../sass/_html.scss",
+        "../sass/_section.scss"
+    ],
+    "names": [],
+    "file": "index.min.css"
+}
