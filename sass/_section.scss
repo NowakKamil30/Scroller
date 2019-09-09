@@ -8,4 +8,9 @@
         max-width: 70%;
         @include margin(10px, auto,0);
     }
+    &__image
+    {
+        width: 100%;
+        background-size: contain;
+    }
 }
